@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="updateFromGit.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="dirOfScenaries" Type="System.String" Scope="User">
+      <Value Profile="(Default)">scenaries</Value>
+    </Setting>
+    <Setting Name="scm_server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">someserver:8800</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

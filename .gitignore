@@ -1,0 +1,9 @@
+bin/[Dd]ebug
+obj
+_sln/packages
+_sln/.vs
+**/scenaries
+*.suo
+*.vshost.*
+*.pdb
+[Tt]humbs.db
