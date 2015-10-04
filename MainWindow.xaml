@@ -116,7 +116,7 @@
             <Button Grid.Row="2" Grid.Column="2" Margin="0 5 0 5" ToolTip="Указать каталог"
                     Click="btn_dir_clicked">...</Button>
 
-            <Label Grid.Row="3" Grid.Column="0" Margin="0 5 0 5" Content="Ветвь для обновления:"
+            <Label Grid.Row="3" Grid.Column="0" Margin="0 5 0 5" Content="Ветка для обновления:"
                    FontSize="14" HorizontalContentAlignment="Right"/>
             <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 5 0 5" Name="tb_branch"
                      FontSize="14" Width="Auto" TextChanged="gitBranch_changed"

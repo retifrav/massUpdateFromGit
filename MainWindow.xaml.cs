@@ -57,9 +57,9 @@ namespace updateFromGit
         /// <summary>
         /// Регулярное выражение проверки ссылки на Git репозиторий
         /// </summary>
-        private Regex gitlink = new Regex(
-            string.Format(@"^http://{0}/scm/git/\w*$", Properties.Settings.Default.scm_server)
-            );
+        //private Regex gitlink = new Regex(
+        //    string.Format(@"^http://{0}/scm/git/\w*$", Properties.Settings.Default.scm_server)
+        //    );
         /// <summary>
         /// Заголовок окна по умолчанию
         /// </summary>
@@ -458,19 +458,19 @@ namespace updateFromGit
                 }
 
                 // проверка на отсутствующую ссылку на репозиторий
-                if (string.IsNullOrEmpty(currentScenario.gitLink)
-                    || !gitlink.IsMatch(currentScenario.gitLink)
-                    )
-                {
-                    MessageBox.Show(
-                        "В сценарии не указан корректный Git-репозиторий проекта.",
-                        "Обновление отменено",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                        );
+                //if (string.IsNullOrEmpty(currentScenario.gitLink)
+                //    || !gitlink.IsMatch(currentScenario.gitLink)
+                //    )
+                //{
+                //    MessageBox.Show(
+                //        "В сценарии не указан корректный Git-репозиторий проекта.",
+                //        "Обновление отменено",
+                //        MessageBoxButton.OK,
+                //        MessageBoxImage.Error
+                //        );
 
-                    return false;
-                }
+                //    return false;
+                //}
 
                 // проверка на пустой список путей обновления
                 if (currentScenario.paths2servers.Count == 0)
