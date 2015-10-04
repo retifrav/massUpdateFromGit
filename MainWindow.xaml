@@ -13,29 +13,29 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" IsMainMenu="True">
-            <MenuItem Header="Сценарий">
-                <MenuItem Name="mn_create" Header="Создать..." Click="createNew_clicked">
+            <MenuItem Header="Scenario">
+                <MenuItem Name="mn_create" Header="Create new..." Click="createNew_clicked">
                     <MenuItem.Icon>
                         <Image Source="/reses/createnew.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="mn_open" Header="Открыть..." Click="open_clicked">
+                <MenuItem Name="mn_open" Header="Open..." Click="open_clicked">
                     <MenuItem.Icon>
                         <Image Source="/reses/open.ico" Width="16"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="mn_save" Header="Сохранить" Click="save_clicked">
+                <MenuItem Name="mn_save" Header="Save scenario" Click="save_clicked">
                     <MenuItem.Icon>
                         <Image Source="/reses/save.ico" Width="16"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Name="mn_update" Header="Выполнить обновление" FontWeight="Bold" Click="update_clicked">
+                <MenuItem Name="mn_update" Header="Start update provcess" FontWeight="Bold" Click="update_clicked">
                     <MenuItem.Icon>
                         <Image Source="/reses/update.ico" Width="16"></Image>
                     </MenuItem.Icon>
                     <MenuItem.ToolTip>
-                        Выполнить обновление на серверах по текущему сценарию
+                        Start update with current scenario
                     </MenuItem.ToolTip>
                 </MenuItem>
                 <!--<MenuItem Name="mn_stop" Header="Остановить обновление" FontWeight="Bold"
@@ -47,16 +47,16 @@
                         Остановить обновление (не рекомендуется)
                     </MenuItem.ToolTip>
                 </MenuItem>-->
-                <MenuItem Name="mn_shortcut" Header="Создать ярлык запуска..." Click="shortcut_clicked">
+                <MenuItem Name="mn_shortcut" Header="Make a shortcut..." Click="shortcut_clicked">
                     <MenuItem.Icon>
                         <Image Source="/reses/shortcut.ico" Width="16"></Image>
                     </MenuItem.Icon>
                     <MenuItem.ToolTip>
-                        Создать ярлык запуска приложения для выполнения текущего сценария в автоматическом режиме
+                        Create a shortcut for starting application with chosen scenario
                     </MenuItem.ToolTip>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Выход" Click="shutdownApp">
+                <MenuItem Header="Exit" Click="shutdownApp">
                     <MenuItem.Icon>
                         <Image Source="/reses/exit.ico" Width="16"></Image>
                     </MenuItem.Icon>
@@ -68,9 +68,8 @@
               VerticalAlignment="Stretch" UseLayoutRounding="False">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock TextAlignment="Center" FontSize="22" FontWeight="Bold" Foreground="Gray">
-                    Для начала работы создайте новый<LineBreak/>
-                    или откройте существующий сценарий<LineBreak/>
-                    обновления проектов
+                    Create new update scenario<LineBreak/>
+                    or open an existing one.<LineBreak/>
                 </TextBlock>
             </Label>
         </Grid>
@@ -95,35 +94,35 @@
             <DockPanel Name="dp_repo" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0 4 0 4"
                        LastChildFill="True">
                 <Border BorderBrush="Black" BorderThickness="1">
-                    <Label Name="crntScenName" Content="неизвестно" FontSize="14">
+                    <Label Name="crntScenName" Content="unknown" FontSize="14">
                         <Label.ToolTip>
-                            <TextBlock>Имя сценария обновления</TextBlock>
+                            <TextBlock>Scenario name</TextBlock>
                         </Label.ToolTip>
                     </Label>
                 </Border>
                 <TextBox Name="gitRepo" Style="{StaticResource placeHolder_blue}"
-                         Tag="Git репозиторий (центральный)"
+                         Tag="Git repository (remote)"
                          VerticalContentAlignment="Center" TextChanged="gitRepo_changed"
                          FontSize="18" Width="Auto"
-                         ToolTip="Ссылка на центральный Git репозиторий"/>
+                         ToolTip="Link to remote Git repository"/>
             </DockPanel>
 
-            <Label Grid.Row="2" Grid.Column="0" Margin="0 5 0 5" Content="Локальный репозиторий:"
+            <Label Grid.Row="2" Grid.Column="0" Margin="0 5 0 5" Content="Local repository:"
                    FontSize="14" HorizontalContentAlignment="Right"/>
             <TextBox Grid.Row="2" Grid.Column="1" Margin="0 5 0 5" Name="tb_localRepo" FontSize="14"
                      Width="Auto" TextChanged="gitLocal_changed"
-                     ToolTip="Путь к репозиторию на вашем компьютере"/>
-            <Button Grid.Row="2" Grid.Column="2" Margin="0 5 0 5" ToolTip="Указать каталог"
+                     ToolTip="Path to local repository"/>
+            <Button Grid.Row="2" Grid.Column="2" Margin="0 5 0 5" ToolTip="Set the directory"
                     Click="btn_dir_clicked">...</Button>
 
-            <Label Grid.Row="3" Grid.Column="0" Margin="0 5 0 5" Content="Ветка для обновления:"
+            <Label Grid.Row="3" Grid.Column="0" Margin="0 5 0 5" Content="Branch for update:"
                    FontSize="14" HorizontalContentAlignment="Right"/>
             <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 5 0 5" Name="tb_branch"
                      FontSize="14" Width="Auto" TextChanged="gitBranch_changed"
-                     ToolTip="Имя ветки, которую следует выкатить на серверах (например, server/master)"/>
+                     ToolTip="Branch name to update at servers (for example, server/master)"/>
 
             <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"
-                   Content="Пути до каталогов на серверах:"/>
+                   Content="Paths to local repositories at servers:"/>
             <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -136,20 +135,20 @@
                 <ListBox Name="lb_paths" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" FontSize="15"/>
                 <StackPanel Margin="5 0 0 0" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
                     <Button Name="btn_addPath" Margin="0 0 0 5" Click="btn_addPath_clicked"
-                            ToolTip="Добавить путь до репозитория на сервере">
+                            ToolTip="Add path to local repository at server">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/reses/add.png" Width="20" />
                         </StackPanel>
                     </Button>
                     <Button Name="btn_delPath" Click="btn_delPath_clicked"
-                            ToolTip="Удалить выбранный путь из сценария">
+                            ToolTip="Remove this path from list">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/reses/remove.png" Width="20" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
                 <Button Margin="5 0 0 0" Grid.Row="1" Grid.Column="1" Name="btn_doTheShit"
-                        Click="update_clicked" ToolTip="Запустить/остановить обновление"
+                        Click="update_clicked" ToolTip="Start/stop update process"
                         IsDefault="True">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/reses/update.ico" Width="35" />
